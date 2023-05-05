@@ -2,6 +2,7 @@
 Hi everyone this is the Prime number checker chrome extension, please note that this repository shouldn't be misused for Abusing, Harrassing OR Spamming others,  if any of the above mentioned occurs then I'm not responsible for anything at all 
 |------|
 
+# Live Demo Here 
 
 <a href="https://blaizinginfernodragon123.github.io/Prime-number-checker-extension-">
 
