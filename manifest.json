@@ -1,0 +1,27 @@
+{
+    "manifest_version": 2,
+    "version": "1.4.0",
+    "name": "Prime Number Checker",
+    "description": "With prime number checker you can check any number , anywhere, anytime",
+    "icons": {
+        "96": "./img/img.jpeg",
+        "128": "./img/img.jpeg"
+    },
+    "author": "BlaizingInfernoDragon123",
+    "short_name": "Prime Number Checker Extension",
+    "homepage_url": "https://github.com/blaizinginfernodragon123/More-On-Html/",
+    "background": {
+        "scripts": [
+            "background.js"
+        ]
+    },
+    "browser_action": {
+        "default_popup": "./index.html",
+        "default_icon": "./img/img.jpeg",
+        "default_title": "Prime Number Checker"
+    },
+    "permissions": [
+        "http://*/*",
+        "https://*/*"
+    ]
+}
