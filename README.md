@@ -4,10 +4,10 @@ Hi everyone this is the Prime number checker chrome extension, please note that 
 
 # Live Demo Here 
 
-<a href="https://blaizinginfernodragon123.github.io/Prime-number-checker-extension-">
+<a href="https://blazeinferno64.github.io/Prime-number-checker-extension-/">
 
 ```
-https://blaizinginfernodragon123.github.io/Prime-number-checker-extension-
+https://blazeinferno64.github.io/Prime-number-checker-extension-/
 ```
 </a>
 
