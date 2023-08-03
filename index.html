@@ -2,75 +2,42 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="theme-color" content="black">
-    <meta name="description" content=""With prime number checker you can check any number , anywhere, anytime">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prime Number Checker</title>
     <link rel="stylesheet" href="./css/styles.css" />
-    <link rel="stylesheet" href="./css/fontawesome.min.css" />
-    <link rel="icon" href="./img/img.jpeg" type="image/x-icon"/>
-    <!--<link rel="stylesheet" href="./css/bootstrap.min.css" />
-    <link rel="stylesheet" href="./css/bootstrap-theme.min.css" />
-    <script src="./css/bootstrap.min.js" defer></script>-->
-    <script src="https://kit.fontawesome.com/f3220d5256.js" crossorigin="anonymous"></script>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2604597246009301"
-    crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="card">
-        <div class="head">
-            <h2>
+        <div class="header">
+            <p>
                 Prime Number Checker
-            </h2>
-            <h3>
-                Enter a number below to check 
-            </h3>
+            </p>
         </div>
-        <div class="checker">
-            <input class="input" id="input" type="text" placeholder="Enter number to check..." title="Enter number to check" />
-            <button class="btn" id="btn">
-                <i class="fa-solid fa-check"></i>  Check
-            </button>
+        <div class="info">
+            <p>
+                Enter a number below to check whether it's prime or not
+            </p>
         </div>
-        <h4>
-            Output :
-        </h4>
-        <div class="output" id="output">
-            No number entered yet
+        <div class="content">
+            <form action="#" id="form">
+                <input type="number" class="field" id="no" placeholder="Type your number here..."/>
+                <button class="btn" id="btn">Check</button>
+            </form>
+        </div>
+        <div id="result" class="result">
+            Enter a number above to check
+        </div>
+        <div id="fact" class="no-margin">
+           Factors will be displayed here...
         </div>
     </div>
-    <div class="footer">
-        <footer>
-            <div class="help">
-                <h4>
-                    Some useful links - 
-                </h4>
-                <br>
-                <ul class="li">
-                    <li>
-                        <a href="https://blaizinginfernodragon123.github.io/#contact" target="_blank" class="li">Facing a problem? Contact me here</a>
-                    </li>
-                     <li>
-                         <a href="https://github.com/blaizinginfernodragon123/Prime-number-checker-extension-/issues/new/choose" target="_blank" class="li">File an Issue here</a>
-                     </li>
-                    <li>
-                        <a href="mailto:blazinginfernodragon123@gmail.com" class="li" target="_blank">Mail me here</a>
-                    </li>
-                </ul>
-            </div>
-            <br>
-            <div class="border">
-            <h3>
-                Copyright &copy;2023-24 
-                <a target="_blank" href="https://github.com/blaizinginfernodragon123">
-                    <i class="fa fa-github"></i>
-                    BlaizingInfernoDragon123
-                </a>
-            </h3>
-            </div>
-        </footer>
+    <div class="alert">
+        <p id="p" class="green">
+            Done!
+        </p>
+        <div class="close" id="close">&times;</div>
     </div>
-    <script src="./js/script.js"></script>
+    <script defer src="./js/script.js"></script>
+    <script defer src="./js/ripple.js"></script>
 </body>
 </html>

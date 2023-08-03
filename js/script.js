@@ -1,64 +1,119 @@
-const btn = document.querySelector(".btn");
-const number = document.getElementById("input");
-const output = document.getElementById("output");
-        
-// Listen for click event
-btn.onclick = function (e) {
+const forms = document.querySelector("#form");
 
-    // Create span element
-    let ripple = document.createElement("span");
+const output = document.querySelector("#result");
+const factorsOutput = document.querySelector("#fact");
 
-    // Add ripple class to span
-    ripple.classList.add("ripple");
+const checkBtn = document.querySelector(".btn");
 
-    // Add span to the button
-    this.appendChild(ripple);
+const field = document.querySelector(".field");
 
-    // Get position of X
-    let x = e.clientX - e.target.offsetLeft;
+const closeBtn = document.querySelector(".close");
 
-    // Get position of Y
-    let y = e.clientY - e.target.offsetTop;
+const popupBox = document.querySelector(".alert");
 
-    // Position the span element
-    ripple.style.left = `${x}px`;
-    ripple.style.top = `${y}px`;
+const popupBoxText = document.querySelector("#p");
 
-    // Remove span after 0.3s
-    setTimeout(() => {
-        ripple.remove();
-    }, 300);
+
+closeBtn.addEventListener("click",(e) => {
+    popupBox.style.bottom = '-100%';
+})
+
+
+forms.addEventListener("submit",(e) => {
+    e.preventDefault();
+});
+
+forms.addEventListener("input",(e) => {
+    if(field.value.length <= 0){
+        checkBtn.style.pointerEvents = 'none';
+        checkBtn.style.opacity = '.55'
+    }
+    else{
+        checkBtn.style.pointerEvents = 'auto';
+        checkBtn.style.opacity = '1';
+    }
+})
+
+field.addEventListener('input',(e) => {
+    if(field.value >= 99999){
+        field.addEventListener("keydown",(e) => {
+            e.preventDefault();
+        })
+        checkBtn.style.opacity = '1';
+        checkBtn.style.pointerEvents = 'none';
+        popupBox.style.bottom = '8%';
+        popupBoxText.classList.add("yellow");
+        popupBoxText.classList.remove("green");
+        popupBoxText.innerText = 'Number is too large!';
+    }
+})
+
+checkBtn.addEventListener("click",(e) => {
+    if(field.value.length < 0){
+        popupBox.style.bottom = '20%';
+        popupBoxText.innerText = 'Enter a number first!';
+        popupBoxText.classList.add("yellow");
+        popupBoxText.classList.remove("green");
+    }
+    else{
+        checkPrime();
+        showFactors(field.value);
+        console.log(e);
+    }
+})
+
+function checkPrime(prime){
+    //console.log(prime);
+    const number = field.value;
     let isPrime = true;
 
-    if (number.value === 1){
-        //alert("1 is neither prime nor composite number!!");
-        output.innerText = "1 is neither prime nor composite number";
-        output.className = 'output2';
+    // Check if number is equal to 1
+    if(number === 1){
+        output.innerText = `<span class="yellow"><b>${number}</b> <b>is neither a prime nor a composite number</b></span>`;
     }
-    else if (number.value > 1){
-        for (let i =2; i < number.value; i++){
-            if (number.value % i == 0){
+    //check if the number is greater than 1
+    else if(number > 1){
+        //looping through 2 to number -1
+        for(let i = 2; i < number; i++){
+            if(number%i==0){
                 isPrime = false;
                 break;
             }
         }
         if(isPrime){
-            output.className = 'output1';
-            number.className = 'input1';
-            output.innerText = `${number.value} is prime`;
-            //alert(`${number.value} is prime`);
-
+            popupBox.style.bottom = '8%';
+            popupBoxText.innerText = 'Done!';
+            popupBoxText.classList.remove("yellow");
+            popupBoxText.classList.add("green");
+            output.innerHTML = `<span class="yellow"><b>${number}</b> is a <b>prime number</b></span>`;
         }
         else{
-            output.className = 'output2';
-            number.className = 'input2';
-            output.innerText = `${number.value} is not prime`;
-            //alert(`${number.value} is not prime`);
+            popupBox.style.bottom = '8%';
+            popupBoxText.innerText = 'Done!';
+            popupBoxText.classList.add("yellow");
+            popupBoxText.classList.remove("green");
+            output.innerHTML = `<span class="yellow"><b>${number}</b> is not a <b>prime number</b><lolo/span>`;
         }
     }
     else{
-        output.className = 'output2';
-        output.innerText = 'First enter a number to check'
-        //alert("The number you have entered is not a prime number");
+        popupBox.style.bottom = '8%';
+        popupBoxText.innerText = 'Done!';
+        popupBoxText.classList.add("yellow");
+        popupBoxText.classList.remove("green");
+        output.innerHTML = `<span class="yellow"><b>${number}</b> is not a <b>prime number</b><lolo/span>`;
     }
-};
+}
+
+function showFactors(n){
+    let factors = [];
+
+    for (let i =1; i <= n / 2; i++){
+        if(n % i === 0){
+            factors.push(i)
+        }
+    }
+
+    factors.push(n)
+    factorsOutput.innerHTML = `<span class="green">Factors of</span> <span class="yellow"><b>${n}</b></span> <span class="green">are</span> <span class="yellow"><b>${factors}</b></span>`;
+    return factors;
+}
