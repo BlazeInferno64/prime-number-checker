@@ -4,10 +4,10 @@ A simple prime number checker which checks whether a number is prime or not and 
 
 # Live Demo Here 
 
-<a href="https://blazeinferno64.github.io/Prime-number-checker-extension-/">
+<a href="https://blazeinferno64.github.io/prime-number-checker/">
 
 ```
-https://blazeinferno64.github.io/Prime-number-checker-extension-/
+https://blazeinferno64.github.io/prime-number-checker/
 ```
 </a>
 
