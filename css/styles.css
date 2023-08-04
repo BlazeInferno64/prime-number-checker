@@ -79,7 +79,22 @@ body{
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    gap: 13px;
+    gap: 5px;
+}
+.txt{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    padding-right: 1rem;
+    font-size: 15px;
+    transition: all .5s ease-in-out;
+}
+.hide{
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
 }
 .btn{
     padding: .6rem 1rem;
@@ -93,8 +108,6 @@ body{
     position: relative;
     isolation: isolate;
     overflow: hidden;
-    opacity: .55;
-    pointer-events: none;
 }
 .btn:hover{
     scale: .97;
@@ -164,6 +177,20 @@ input[type="number"]{
 }
 .green{
     color: rgb(0, 255, 157);
+}
+.red{
+    outline:3px solid rgb(212, 3, 3);;
+}
+.red:focus{
+    outline:3px solid rgb(212, 3, 3);;
+}
+.no{
+    pointer-events: none;
+    opacity: .55;
+}
+.none{
+    pointer-events: none;
+    opacity: .55;
 }
 .alert{
     box-shadow: 0 10px 20px 0 rgba(0,0,0,.6);

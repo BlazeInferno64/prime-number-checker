@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="theme-color" content="black">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prime Number Checker</title>
     <link rel="stylesheet" href="./css/styles.css" />
-    <link rel="icon" href="https://avatars.githubusercontent.com/u/96913755?v=4" type="image/x-icon"/>
 </head>
 <body>
     <div class="card">
@@ -22,8 +22,9 @@
         </div>
         <div class="content">
             <form action="#" id="form">
-                <input type="number" class="field" id="no" placeholder="Type your number here..."/>
-                <button class="btn" id="btn">Check</button>
+                <input type="number" maxlength="7" class="field" id="no" placeholder="Type your number here..."/>
+                <span class="txt yellow hide"></span>
+                <button class="btn none" id="btn">Check</button>
             </form>
         </div>
         <div id="result" class="result">

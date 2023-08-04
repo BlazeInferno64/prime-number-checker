@@ -1,3 +1,6 @@
+const field = document.querySelector(".field");
+const maxLength = field.getAttribute("maxlength");
+
 const forms = document.querySelector("#form");
 
 const output = document.querySelector("#result");
@@ -5,13 +8,14 @@ const factorsOutput = document.querySelector("#fact");
 
 const checkBtn = document.querySelector(".btn");
 
-const field = document.querySelector(".field");
 
 const closeBtn = document.querySelector(".close");
 
 const popupBox = document.querySelector(".alert");
 
 const popupBoxText = document.querySelector("#p");
+
+const charactersLimit = document.querySelector(".txt");
 
 
 closeBtn.addEventListener("click",(e) => {
@@ -25,35 +29,59 @@ forms.addEventListener("submit",(e) => {
 
 forms.addEventListener("input",(e) => {
     if(field.value.length <= 0){
-        checkBtn.style.pointerEvents = 'none';
-        checkBtn.style.opacity = '.55'
+        checkBtn.classList.add("none")
     }
     else{
-        checkBtn.style.pointerEvents = 'auto';
-        checkBtn.style.opacity = '1';
+        checkBtn.classList.remove("none")
     }
 })
 
+const limit = 7;
+charactersLimit.textContent = `0 / ${limit} digits left`;
+
 field.addEventListener('input',(e) => {
-    if(field.value >= 99999){
-        field.addEventListener("keydown",(e) => {
-            if(e.keyCode === 8){
-                popupBoxText.innerText = 'Number is ok!';
-            }
-            if(e.keyCode === 46){
-                popupBoxText.innerText = 'Number is ok!';
-            }
-            else{
-                e.preventDefault();
-            }
-        })
-        checkBtn.style.opacity = '1';
-        checkBtn.style.pointerEvents = 'none';
+    charactersLimit.classList.remove("hide");
+    const textLength = field.value.length;
+    charactersLimit.textContent = `${maxLength - textLength}  / ${limit} digits left`;
+    
+    if(textLength > limit){
+        field.classList.remove("none");
+        field.classList.add("red");
+        
+        //  Preventing the user from checking...
+        checkBtn.classList.add("no");
+
         popupBox.style.bottom = '8%';
         popupBoxText.classList.add("yellow");
         popupBoxText.classList.remove("green");
         popupBoxText.innerText = 'Number is too large!';
     }
+    else if(textLength <= limit){
+        if(textLength <= 1){
+            field.addEventListener("keydown",(e) => {
+                if(e.keyCode === 8){
+                    charactersLimit.classList.add("hide");
+                }
+            })
+        }
+        field.classList.remove("none")
+        field.classList.remove("red");
+
+        checkBtn.classList.remove("no");
+
+        popupBox.style.bottom = '-100%';
+        popupBoxText.classList.add("yellow");
+        popupBoxText.classList.remove("green");
+       // popupBoxText.innerText = 'Number is okay!';
+    }
+    
+    /* checkBtn.style.opacity = '1';
+        checkBtn.style.pointerEvents = 'none';
+        popupBox.style.bottom = '8%';
+        popupBoxText.classList.add("yellow");
+        popupBoxText.classList.remove("green");
+        popupBoxText.innerText = 'Number is too large!';*/
+
 })
 
 checkBtn.addEventListener("click",(e) => {
