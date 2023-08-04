@@ -37,7 +37,15 @@ forms.addEventListener("input",(e) => {
 field.addEventListener('input',(e) => {
     if(field.value >= 99999){
         field.addEventListener("keydown",(e) => {
-            e.preventDefault();
+            if(e.keyCode === 8){
+                popupBoxText.innerText = 'Number is ok!';
+            }
+            if(e.keyCode === 46){
+                popupBoxText.innerText = 'Number is ok!';
+            }
+            else{
+                e.preventDefault();
+            }
         })
         checkBtn.style.opacity = '1';
         checkBtn.style.pointerEvents = 'none';
